@@ -18,10 +18,10 @@ import { Divider, Grid } from "@mui/material";
 
 const theme = createTheme({
   palette: {
-    primary: { main: "#ffffff" },
+    primary: { main: "#ffffff " },
     secondary: { main: "#00BD84" },
     custom: { main: "#EBFF24" },
-    black: {main :"#000000"}
+    black: { main: "#000000" },
   },
   typography: {
     fontFamily: ["sans-serif"],
@@ -49,7 +49,7 @@ const Card = () => {
       <CssBaseline />
       <Grid
         sx={{
-          backgroundColor: 'black.main',
+          backgroundColor: "black.main",
           height: "60%",
           p: 2,
           position: "relative",
@@ -115,7 +115,7 @@ const Card = () => {
                 LONG
               </Typography>
               <Divider
-                sx={{ width: "4px", background: "primary.main" }}
+                sx={{ width: "3px", backgroundColor: "primary.main" }}
                 orientation="vertical"
                 flexItem
               ></Divider>
@@ -151,7 +151,7 @@ const Card = () => {
                 </Typography>
               </Box>
               <Divider
-                sx={{ width: "4px", background: "primary.main" }}
+                sx={{ width: "3px", backgroundColor: "primary.main" }}
                 orientation="vertical"
                 flexItem
               ></Divider>

@@ -31,11 +31,10 @@ function App() {
 
   return (
     <div>
-    <div ref={ref}>
-      <Card />
-      
-    </div>
-    <div
+      <div ref={ref}>
+        <Card />
+      </div>
+      <div
         style={{
           display: "flex",
           justifyContent: "flex-start",
@@ -53,7 +52,7 @@ function App() {
           <TwitterIcon />
         </TwitterShareButton>
         <WhatsappShareButton url={window.location.href} className="share-btn">
-          <WhatsappIcon />{" "}
+          <WhatsappIcon />
         </WhatsappShareButton>
       </div>
     </div>
