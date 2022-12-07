@@ -1,25 +1,23 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 
-export const useCryptoPrice = () => {
+export const useCryptoPrice = (currencyName) => {
   const [currentPrice, setCurrentPrice] = useState(0);
-  const currencyName  ="bitcoin"
 
-  useEffect(()=>{
-    
-  })
-  const socket = new WebSocket(
-    `wss://ws.coincap.io/prices?assets=${currencyName}`
-  );
+  useEffect(() => {
+    const socket = new WebSocket(
+      `wss://ws.coincap.io/prices?assets=${currencyName}`
+    );
 
-  socket.addEventListener("message", function (event) {
-    if (event) {
-      const bitcoinPrice = JSON.parse(event.data)?.bitcoin;
+    socket.addEventListener("message", function (event) {
+      if (event) {
+        const bitcoinPrice = JSON.parse(event.data)[currencyName];
 
-      setCurrentPrice(bitcoinPrice);
-    }
+        setCurrentPrice(bitcoinPrice);
+      }
 
-    // parse & show the data
-  });
+      // parse & show the data
+    });
+  }, []);
 
   return currentPrice;
 };

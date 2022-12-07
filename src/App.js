@@ -1,16 +1,22 @@
 import "./App.css";
 import React, { createRef } from "react";
-import Image from "./assets/flower.jpg";
 import { useScreenshot, createFileName } from "use-react-screenshot";
 import { useCryptoPrice } from "./hook";
 import Card from "./Card";
+import Button from "@mui/material/Button";
+import {
+  TwitterShareButton,
+  WhatsappShareButton,
+  WhatsappIcon,
+  TwitterIcon,
+} from "react-share";
+import "./App.css";
 function App() {
-  const bitCoinPrice = useCryptoPrice("bitcoin");
   const ref = createRef(null);
   const [image, takeScreenShot] = useScreenshot({
     type: "image/jpeg",
     quality: 1.0,
-    width:"1200px",
+    width: "1200px",
     height: "700",
   });
 
@@ -21,27 +27,32 @@ function App() {
     a.click();
   };
 
-  console.log(bitCoinPrice);
-
   const downloadScreenshot = () => takeScreenShot(ref.current).then(download);
 
-  console.log(window.location)
-
   return (
-    <div
-    
-    >
+    <div ref={ref}>
+      <Card />
       <div
-        ref={ref}
-        
+        style={{
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItem: "center",
+        }}
       >
-<Card bitCoinPrice={bitCoinPrice} />      </div>
-      <div>
-      <button onClick={downloadScreenshot}>Download screenshot</button>
-      <button >Share</button>
+        <Button
+          variant="contained"
+          onClick={downloadScreenshot}
+          sx={{ margin: "1rem" }}
+        >
+          Download screenshot
+        </Button>
+        <TwitterShareButton url={window.location.href} className="share-btn">
+          <TwitterIcon />
+        </TwitterShareButton>
+        <WhatsappShareButton url={window.location.href} className="share-btn">
+          <WhatsappIcon />{" "}
+        </WhatsappShareButton>
       </div>
-   
-
     </div>
   );
 }

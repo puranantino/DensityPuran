@@ -12,19 +12,9 @@ import img from "./assets/img.svg";
 import spaceship from "./assets/spaceship.svg";
 import QRCode from "./assets/QRCode.svg";
 import design from "./assets/design.svg";
-import {
+import { useCryptoPrice } from "./hook";
 
-
-
-Divider,
-Grid,
-Paper,
-
-
-} from "@mui/material";
-
-
-
+import { Divider, Grid } from "@mui/material";
 
 const theme = createTheme({
   palette: {
@@ -50,9 +40,8 @@ const theme = createTheme({
   },
 });
 
-const Card = ({bitCoinPrice}) => {
- 
-  console.log(bitCoinPrice, "btcDetails");
+const Card = () => {
+  const bitCoinPrice = useCryptoPrice("bitcoin");
 
   return (
     <ThemeProvider theme={theme}>
@@ -60,8 +49,8 @@ const Card = ({bitCoinPrice}) => {
       <Grid
         sx={{
           backgroundColor: "black",
-          height: "100%",
-          p: 3,
+          height: "60%",
+          p: 2,
           position: "relative",
         }}
         container
@@ -89,7 +78,7 @@ const Card = ({bitCoinPrice}) => {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              gap: 1,
+              // gap: ,
             }}
           >
             <Typography
@@ -157,7 +146,7 @@ const Card = ({bitCoinPrice}) => {
                   color="custom.main"
                   sx={{ fontSize: { xs: "1rem" } }}
                 >
-                  {/* ${btcDetails?.last} */}
+                  ${bitCoinPrice}
                 </Typography>
               </Box>
               <Divider
@@ -183,7 +172,7 @@ const Card = ({bitCoinPrice}) => {
                   sx={{ fontSize: { xs: "1rem" } }}
                   color="custom.main"
                 >
-                  {/* ${btcDetails?.last} */}
+                  $16500
                 </Typography>
               </Box>
             </Box>
@@ -229,7 +218,7 @@ const Card = ({bitCoinPrice}) => {
               color="primary.main"
               sx={{
                 fontSize: "0.8rem",
-                width: { sm: "35%" },
+                width: { sm: "40%" },
                 ml: { xs: "68%" },
               }}
             >
