@@ -21,6 +21,7 @@ const theme = createTheme({
     primary: { main: "#ffffff" },
     secondary: { main: "#00BD84" },
     custom: { main: "#EBFF24" },
+    black: {main :"#000000"}
   },
   typography: {
     fontFamily: ["sans-serif"],
@@ -48,7 +49,7 @@ const Card = () => {
       <CssBaseline />
       <Grid
         sx={{
-          backgroundColor: "black",
+          backgroundColor: 'black.main',
           height: "60%",
           p: 2,
           position: "relative",
@@ -114,7 +115,7 @@ const Card = () => {
                 LONG
               </Typography>
               <Divider
-                sx={{ width: "4px", background: "#fff" }}
+                sx={{ width: "4px", background: "primary.main" }}
                 orientation="vertical"
                 flexItem
               ></Divider>
@@ -150,7 +151,7 @@ const Card = () => {
                 </Typography>
               </Box>
               <Divider
-                sx={{ width: "4px", background: "#fff" }}
+                sx={{ width: "4px", background: "primary.main" }}
                 orientation="vertical"
                 flexItem
               ></Divider>
