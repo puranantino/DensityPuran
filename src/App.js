@@ -30,9 +30,12 @@ function App() {
   const downloadScreenshot = () => takeScreenShot(ref.current).then(download);
 
   return (
+    <div>
     <div ref={ref}>
       <Card />
-      <div
+      
+    </div>
+    <div
         style={{
           display: "flex",
           justifyContent: "flex-start",
